@@ -97,12 +97,14 @@ function MenuList({ user, onClick }) {
   );
 }
 const Navbar = () => {
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user.user);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCloseNavbar = () => {
     setIsOpen((prev) => !prev);
   };
+
+  console.log(user.user)
 
   return (
     <>
@@ -177,7 +179,7 @@ const Navbar = () => {
           </Link>
 
           <div className='w-full py-10'>
-            {!user?.token ? (
+            {!user?.token? (
               <a href='/user-auth'>
                 <CustomButton
                   title='Sign In'
